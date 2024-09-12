@@ -33,7 +33,7 @@
     "description": "A professional photographer that has already been in photography field for almost 10 years will share the secret that beginner will not know.",
     "rating": 3,
     "CategoryId": 2,
-    "imageUrl":"https://images.unsplash.com/photo-1507508108353-907b7293f475?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    "imageUrl": "https://images.unsplash.com/photo-1507508108353-907b7293f475?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     "title": "Living A Green Life",
@@ -42,7 +42,7 @@
     "description": "You can plant all the vegetable staples in your house!",
     "rating": 2,
     "CategoryId": 4,
-    "imageUrl":"https://images.unsplash.com/photo-1621460248083-6271cc4437a8?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    "imageUrl": "https://images.unsplash.com/photo-1621460248083-6271cc4437a8?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     "title": "How to Make Friends",
@@ -51,7 +51,7 @@
     "description": "Learn the key of communicating and grasp somebody's interest together with a professional life coach.",
     "rating": 5,
     "CategoryId": 5,
-    "imageUrl":"https://images.unsplash.com/photo-1506869640319-fe1a24fd76dc?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    "imageUrl": "https://images.unsplash.com/photo-1506869640319-fe1a24fd76dc?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     "title": "Amazing Design",
@@ -60,7 +60,7 @@
     "description": "Stressed out when learning designing? Let me show you the fun and effective way!",
     "rating": 3,
     "CategoryId": 3,
-    "imageUrl":"https://plus.unsplash.com/premium_photo-1661382011487-cd3d6b1d9dff?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    "imageUrl": "https://plus.unsplash.com/premium_photo-1661382011487-cd3d6b1d9dff?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     "title": "Fundamental of Web Development",
@@ -69,7 +69,7 @@
     "description": "Step by steps into programming focusing on website building. Trust me, it works!.",
     "rating": 3,
     "CategoryId": 1,
-    "imageUrl":"https://plus.unsplash.com/premium_photo-1678566154673-a728037f3f00?q=80&w=1302&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    "imageUrl": "https://plus.unsplash.com/premium_photo-1678566154673-a728037f3f00?q=80&w=1302&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     "title": "Introduction into Machine Learning",
@@ -78,7 +78,7 @@
     "description": "Deep dive into the new field of machine learning technology.",
     "rating": 1,
     "CategoryId": 1,
-    "imageUrl":"https://plus.unsplash.com/premium_photo-1682124651258-410b25fa9dc0?q=80&w=1321&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    "imageUrl": "https://plus.unsplash.com/premium_photo-1682124651258-410b25fa9dc0?q=80&w=1321&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     "title": "Gardening Tips",
@@ -87,7 +87,7 @@
     "description": "Here is a brief, clear direction for starting to gardening.",
     "rating": 4,
     "CategoryId": 4,
-    "imageUrl":"https://images.unsplash.com/photo-1515150144380-bca9f1650ed9?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    "imageUrl": "https://images.unsplash.com/photo-1515150144380-bca9f1650ed9?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     "title": "Wonder Style",
@@ -96,7 +96,7 @@
     "description": "Learn and thrive into the field of designing and styling.",
     "rating": 5,
     "CategoryId": 3,
-    "imageUrl":"https://plus.unsplash.com/premium_photo-1666183669536-2ee4016b2985?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    "imageUrl": "https://plus.unsplash.com/premium_photo-1666183669536-2ee4016b2985?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     "title": "Advanced Data Structure",
@@ -105,7 +105,7 @@
     "description": "Learning intermediate data structures that are widely used worldwide.",
     "rating": 2,
     "CategoryId": 1,
-    "imageUrl":"https://plus.unsplash.com/premium_photo-1664297969735-71ce1580b10b?q=80&w=1487&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    "imageUrl": "https://plus.unsplash.com/premium_photo-1664297969735-71ce1580b10b?q=80&w=1487&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     "title": "Capture The Moments",
@@ -114,7 +114,7 @@
     "description": "Diving into the beauty of learning capturing special moments.",
     "rating": 1,
     "CategoryId": 2,
-    "imageUrl":"https://images.unsplash.com/photo-1519674508766-db48af81ed1c?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    "imageUrl": "https://images.unsplash.com/photo-1519674508766-db48af81ed1c?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     "title": "Intro to Data Science",
@@ -123,7 +123,7 @@
     "description": "Learning of the importance of datas and become expert in no time.",
     "rating": 5,
     "CategoryId": 1,
-    "imageUrl":"https://plus.unsplash.com/premium_photo-1663023612721-e588768ef403?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    "imageUrl": "https://plus.unsplash.com/premium_photo-1663023612721-e588768ef403?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     "title": "Through the Lens",
