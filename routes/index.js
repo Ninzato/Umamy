@@ -43,6 +43,7 @@ router.get("/category/:categoryId", Controller.showCoursesByCategory);
 router.get("/admin", isAdmin, Controller.showAdminTable);
 router.get("/admin/courses/:id/delete", isAdmin, Controller.adminDeleteCourse);
 router.get("/admin/users", isAdmin, Controller.adminShowsUsers);
+router.get("/admin/users/:userId/delete", isAdmin, Controller.adminDeleteUser);
 module.exports = router;
 
 // Sign Out

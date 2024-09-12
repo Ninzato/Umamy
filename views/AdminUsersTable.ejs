@@ -8,7 +8,7 @@
   </head>
   <body>
     <%- include("./partials/AdminNavbar.ejs") %>
-    <% if(deletedCourse != undefined){ %>
+    <% if(deletedUser != undefined){ %>
         <div id="popup" role="alert" class="py-2 rounded-xl border border-gray-100 bg-white p-4">
             <div class="flex items-start gap-4">
               <span class="text-green-600">
@@ -31,7 +31,7 @@
               <div class="flex-1">
                 <strong class="block font-medium text-gray-900"> Changes saved </strong>
           
-                <p class="mt-1 text-sm text-gray-700"><%= deletedCourse[0] %> by <%= deletedCourse[1] %> has successfully been deleted.</p>
+                <p class="mt-1 text-sm text-gray-700">User has successfully been deleted.</p>
               </div>
           
               <button onclick="dismissPopup()" class="text-gray-500 transition hover:text-gray-600">
@@ -55,18 +55,22 @@
       <table>
         <tr>
             <!-- title, author, rating, action delete -->
-          <th>Title</th>
-          <th>Author</th>
-          <th>Rating <i class="fa-solid fa-star"></i></th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Bio</th>
+          <th>Number of Courses Enrolled</th>
           <th>Action</th>
         </tr>
         <% users.forEach(e => { %>
             <tr>
-                <td><%= e.title %></td>
-                <td><%= e.author %></td>
-                <td><%= e.rating %></td>
+                <td><%= e.UserProfile ? e.UserProfile.firstName : "" %></td>
+                <td><%= e.UserProfile ? e.UserProfile.lastName : "" %></td>
+                <td><%= e.email %></td>
+                <td><%= e.bio %></td>
+                <td><%= e.UserCourses ? e.UserCourses.length : 0 %></td>
                 <td>
-                  <a href="/admin/courses/<%= e.id %>/delete"><button class="button rounded-xl bg-[#009951] text-[#F5F5F5] px-4 py-2" onclick="return confirm(`Are you sure you want to delete this <%= e.title %> course by <%= e.author %>?`)">Delete</button></a>
+                  <a href="/admin/users/<%= e.id %>/delete"><button class="button rounded-xl bg-[#009951] text-[#F5F5F5] px-4 py-2" onclick="return confirm(`Are you sure you want to delete this user named <%= e.UserProfile ? e.UserProfile.firstName : "" %> <%= e.UserProfile ? e.UserProfile.lastName : "" %>?`)">Delete</button></a>
                 </td>
               </tr>
         <% }); %>

@@ -1,7 +1,57 @@
 const { Op } = require("sequelize");
-const { Course, User } = require("../models");
+const { Course, User, UserCourse, UserProfile } = require("../models");
+const nodeMailer = require("nodemailer");
+require("dotenv").config();
 
 class Controller {
+  static async sendWelcomeEmail(userEmail) {
+    try {
+      const transporter = nodeMailer.createTransport({
+        host: "smtp.office365.com",
+        port: 587,
+        secure: false,
+        auth: {
+          user: process.env.EMAIL_USER,
+          pass: process.env.EMAIL_PASSWORD,
+        },
+      });
+
+      const info = await transporter.sendMail({
+        from: `UMAMY <${process.env.EMAIL_USER}>`,
+        to: `${userEmail}`,
+        subject: "Welcome to UMAMY!",
+        html: `<h1>Hello welcome to UMAMY! Hopefully you'll enjoy learning here!</h1>`,
+      });
+      console.log(info);
+    } catch (err) {
+      console.log(err.message);
+    }
+  }
+
+  static async sendCongratulationsEmail(userEmail) {
+    try {
+      const transporter = nodeMailer.createTransport({
+        host: "smtp.office365.com",
+        port: 587,
+        secure: false,
+        auth: {
+          user: process.env.EMAIL_USER,
+          pass: process.env.EMAIL_PASSWORD,
+        },
+      });
+
+      const info = await transporter.sendMail({
+        from: `UMAMY <${process.env.EMAIL_USER}>`,
+        to: `${userEmail}`,
+        subject: "Congratulations on completing the course!",
+        html: `<h1>Hope you'll excel with your new skill and knowledge!</h1>
+            <h2>Will definitely wait for you to enroll our other interesting courses soon!</h2>`,
+      });
+      console.log(info);
+    } catch (err) {
+      console.log(err.message);
+    }
+  }
   static async home(req, res) {
     const { search, id } = req.query;
     try {
@@ -11,6 +61,7 @@ class Controller {
       const opt = {
         order: [["rating", "DESC"]],
         limit: 6,
+        where: {},
       };
 
       if (search) {
@@ -81,18 +132,38 @@ class Controller {
       res.send(err.message);
     }
   }
-  //TODO: masih belum ada association ya
+
   static async adminShowsUsers(req, res) {
+    let { deletedUser } = req.query;
     try {
       let users = await User.findAll({
-        include: {
-          model: UserCourse,
-          include: Course,
-        },
-        include: UserProfile,
+        include: [
+          {
+            model: UserProfile,
+          },
+          {
+            model: UserCourse,
+            include: [Course],
+          },
+        ],
       });
-      res.send(users);
-      // res.render("AdminUsersTable", {users});
+      // res.send(users);
+      console.log(users.UserProfile);
+      res.render("AdminUsersTable", { users, deletedUser });
+    } catch (err) {
+      console.log(err.message);
+      res.send(err.message);
+    }
+  }
+
+  static async adminDeleteUser(req, res) {
+    const { userId } = req.params;
+    try {
+      const deletedUser = await User.findByPk(userId);
+      await User.destroy({ where: { id: userId } });
+      res.redirect(
+        `/admin/users?deletedUser=${deletedUser.UserProfile ? deletedUser.UserProfile.firstName : "undefined"},${deletedUser.UserProfile ? deletedUser.UserProfile.firstName : "undefined"}`,
+      );
     } catch (err) {
       console.log(err.message);
       res.send(err.message);
