@@ -38,6 +38,9 @@ router.post("/userProfile/:id", RidzaController.userProfilePost);
 router.get("/userCourses/:id", RidzaController.userCourses);
 router.get("/userCourses/:id/makeComplete", RidzaController.makeComplete);
 
+// Enrolling
+router.get("/enroll/:courseId", Controller.enrollToCourse);
+
 //Search Courses by Category
 router.get("/category/:categoryId", Controller.showCoursesByCategory);
 router.get("/admin", isAdmin, Controller.showAdminTable);

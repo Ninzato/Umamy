@@ -34,6 +34,12 @@ module.exports = (sequelize, DataTypes) => {
       UserId: DataTypes.INTEGER,
     },
     {
+      hooks: {
+        beforeCreate: (userCourse) => {
+          let theDate = new Date();
+          userCourse.purchaseDate = theDate.toISOString();
+        },
+      },
       sequelize,
       modelName: "UserCourse",
     },

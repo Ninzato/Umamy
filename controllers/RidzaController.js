@@ -82,7 +82,7 @@ class RidzaController {
       const isSignedIn = !!req.session.userId;
       const userProfile = await UserProfile.findOne({
         where: {
-          id: id,
+          UserId: id,
         },
       });
       res.render("userProfileForm", { userProfile, isSignedIn, id });
@@ -98,7 +98,7 @@ class RidzaController {
     try {
       const userProfile = await UserProfile.findOne({
         where: {
-          id: id,
+          UserId: id,
         },
       });
       userProfile.update(
@@ -109,7 +109,7 @@ class RidzaController {
         },
         {
           where: {
-            id: id,
+            UserId: id,
           },
         },
       );
@@ -127,7 +127,7 @@ class RidzaController {
 
       const options = {
         where: {
-          id: 2,
+          id: id,
         },
         include: {
           model: UserCourse,
@@ -135,14 +135,17 @@ class RidzaController {
         },
       };
 
-      if (status) {
+      let userData = await User.findOne(options);
+
+      if (status && userData.UserCourses.length > 0) {
         options.include.where = {
           status: {
             [Op.iLike]: `%${status}%`,
           },
         };
+
+        userData = await User.findOne(options);
       }
-      const userData = await User.findOne(options);
       //   res.send(userData);
       res.render("userCourses", { userData, isSignedIn, id });
     } catch (err) {

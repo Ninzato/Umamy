@@ -64,6 +64,8 @@ class Controller {
         where: {},
       };
 
+      let courses = await Course.findAll(opt);
+
       if (search) {
         delete opt.order;
         delete opt.limit;
@@ -72,8 +74,38 @@ class Controller {
             [Op.iLike]: `%${search}%`,
           },
         };
+        courses = await Course.findAll(opt);
       }
-      const courses = await Course.findAll(opt);
+
+      let userCourses;
+      let takenCourses = [];
+      if (id) {
+        userCourses = await UserCourse.findAll({
+          where: {
+            UserId: id,
+          },
+        });
+
+        userCourses.forEach((el) => {
+          takenCourses.push(el.CourseId);
+        });
+        console.log(takenCourses, "<<<");
+      }
+
+      if (search && id) {
+        delete opt.order;
+        delete opt.limit;
+        opt.where = {
+          title: {
+            [Op.iLike]: `%${search}%`,
+          },
+          id: {
+            [Op.notIn]: takenCourses,
+          },
+        };
+        courses = await Course.findAll(opt);
+      }
+
       // console.log(courses);
       // res.send(courses);
       res.render("Home", { courses, isSignedIn, id });
@@ -90,19 +122,69 @@ class Controller {
       const isSignedIn = !!req.session.userId;
 
       const opt = {
-        where: { CategoryId: categoryId },
+        order: [["rating", "DESC"]],
+        limit: 6,
+        where: {},
       };
+
+      let courses = await Course.findAll(opt);
+
       if (search) {
-        opt.where.title = {
-          [Op.iLike]: `%${search}%`,
+        delete opt.order;
+        delete opt.limit;
+        opt.where = {
+          title: {
+            [Op.iLike]: `%${search}%`,
+          },
         };
+        courses = await Course.findAll(opt);
       }
-      const courses = await Course.findAll(opt);
-      console.log(courses);
+
+      let userCourses;
+      let takenCourses = [];
+      if (id) {
+        userCourses = await UserCourse.findAll({
+          where: {
+            UserId: id,
+          },
+        });
+
+        userCourses.forEach((el) => {
+          takenCourses.push(el.CourseId);
+        });
+        console.log(takenCourses, "<<<");
+      }
+
+      if (search && id) {
+        delete opt.order;
+        delete opt.limit;
+        opt.where = {
+          title: {
+            [Op.iLike]: `%${search}%`,
+          },
+          id: {
+            [Op.notIn]: takenCourses,
+          },
+        };
+        courses = await Course.findAll(opt);
+      }
+      // console.log(courses);
       res.render("Home", { courses, isSignedIn, id });
     } catch (err) {
       console.log(err.message);
       res.render(err.message);
+    }
+  }
+
+  static async enrollToCourse(req, res) {
+    const { status, CourseId, UserId } = req.query;
+    try {
+      // res.send(req.query);
+      await UserCourse.create({ status, CourseId, UserId });
+      res.redirect(`/userCourses/${UserId}?id=${UserId}`);
+    } catch (err) {
+      console.log(err);
+      res.send(err.message);
     }
   }
 
