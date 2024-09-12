@@ -1,7 +1,7 @@
 const { User, UserCourse, Course, UserProfile } = require("../models");
 const bcrypt = require("bcryptjs");
 const { Op, where } = require("sequelize");
-const EricaController = require("./EricaController.js");
+const Controller = require("./Controller.js");
 
 class RidzaController {
   static async signUpForm(req, res) {
@@ -20,7 +20,7 @@ class RidzaController {
       //   let firstName = (lastName = bio = "");
       await User.create({ email, password, role });
       //   await UserProfile.create;
-      await EricaController.sendWelcomeEmail(email);
+      await Controller.sendWelcomeEmail(email);
       res.redirect("/signIn");
     } catch (err) {
       if (err.name === "SequelizeValidationError") {
