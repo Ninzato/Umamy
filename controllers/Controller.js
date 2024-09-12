@@ -1,5 +1,5 @@
 const { Op } = require("sequelize");
-const { Course, User } = require("../models");
+const { Course, User, UserCourse, UserProfile } = require("../models");
 
 class Controller {
   static async home(req, res) {
@@ -74,19 +74,39 @@ class Controller {
       res.send(err.message);
     }
   }
-  //TODO: masih belum ada association ya
+
   static async adminShowsUsers(req, res) {
+    let {deletedUser} = req.query;
     try {
       let users = await User.findAll({
-        include: {
-          model: UserCourse,
-          include: Course,
-        },
-        include: UserProfile,
+        include: [
+          {
+            model: UserProfile, 
+          },
+          {
+            model: UserCourse,
+            include: [Course] 
+          }
+        ]
       });
-      res.send(users);
-      // res.render("AdminUsersTable", {users});
+      // res.send(users);
+      console.log(users.UserProfile);
+      res.render("AdminUsersTable", {users, deletedUser});
     } catch (err) {
+      console.log(err.message);
+      res.send(err.message);
+    }
+  }
+
+  static async adminDeleteUser(req,res){
+    const { userId } = req.params;
+    try{
+      const deletedUser = await User.findByPk(userId);
+      await User.destroy({where:{id:userId}});
+      res.redirect(
+        `/admin/users?deletedUser=${deletedUser.UserProfile ? deletedUser.UserProfile.firstName : 'undefined'},${deletedUser.UserProfile ? deletedUser.UserProfile.firstName : 'undefined'}`,
+      );
+    } catch (err){
       console.log(err.message);
       res.send(err.message);
     }

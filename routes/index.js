@@ -33,4 +33,5 @@ router.get("/category/:categoryId", Controller.showCoursesByCategory);
 router.get("/admin", Controller.showAdminTable);
 router.get("/admin/courses/:id/delete", Controller.adminDeleteCourse);
 router.get("/admin/users", Controller.adminShowsUsers);
+router.get("/admin/users/:userId/delete", Controller.adminDeleteUser);
 module.exports = router;

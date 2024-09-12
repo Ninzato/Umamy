@@ -20,6 +20,7 @@ class RidzaController {
       //   let firstName = (lastName = bio = "");
       await User.create({ email, password, role });
       //   await UserProfile.create;
+      await EricaController.sendWelcomeEmail(email);
       res.redirect("/signIn");
     } catch (err) {
       if (err.name === "SequelizeValidationError") {
@@ -55,7 +56,7 @@ class RidzaController {
 
         if (isValidPassword) {
           req.session.userId = user.id;
-          return res.redirect("/userProfile");
+          return res.redirect(`/`);
         } else {
           const errors = ["Wrong password! Try again"];
           return res.redirect(`/signIn?errors=${errors}`);
