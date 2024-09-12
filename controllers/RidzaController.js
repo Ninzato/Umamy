@@ -1,6 +1,6 @@
 const { User, UserCourse, Course, UserProfile } = require("../models");
 const bcrypt = require("bcryptjs");
-const { Op, where } = require("sequelize");
+const { Op } = require("sequelize");
 const Controller = require("./Controller.js");
 
 class RidzaController {
@@ -80,11 +80,8 @@ class RidzaController {
     const { id } = req.params;
     try {
       const isSignedIn = !!req.session.userId;
-      const userProfile = await UserProfile.findOne({
-        where: {
-          UserId: id,
-        },
-      });
+      const userProfile = await UserProfile.getProfile(id);
+      console.log(userProfile);
       res.render("userProfileForm", { userProfile, isSignedIn, id });
     } catch (err) {
       console.log(err);
@@ -148,6 +145,7 @@ class RidzaController {
         userData = await User.findOne(options);
       }
       //   res.send(userData);
+      console.log(userData.UserCourses[0].Course, "<<<<<");
       res.render("userCourses", { userData, isSignedIn, id });
     } catch (err) {
       console.log(err);
