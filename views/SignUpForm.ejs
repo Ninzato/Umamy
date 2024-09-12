@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/dist/styles.css" />
+  </head>
+  <body>
+    <% if (errors) { %>
+        <% errors.split(',').forEach(e => { %>
+            <p style="color: red; text-align: center;"><%= e %></p>
+        <% }) %>
+    <% } %>
+    <div class="flex h-screen items-center justify-center">
+      <div class="flex h-3/5">
+        <div class="flex flex-1 flex-col items-center justify-center">
+          <div class="flex flex-col items-center gap-2.5">
+            <div class="flex flex-col gap-10">
+              <div>
+                <h1 class="text-5xl font-bold leading-snug">
+                  Welcome to Umamy
+                </h1>
+                <p class="text-xl font-light leading-snug">
+                  Unlock a world of knowledge with our diverse course offerings
+                </p>
+              </div>
+              <form method="post" class="flex w-full flex-col gap-4">
+                <div class="flex flex-col gap-1">
+                  <label for="email" class="text-base font-bold">Email</label>
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    class="inline-block w-full rounded-md border border-green-600 px-4 py-3"
+                  />
+                </div>
+                <div class="flex flex-col gap-1">
+                  <label for="password" class="text-base font-bold"
+                    >Password</label
+                  >
+                  <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    placeholder="Enter your password"
+                    class="inline-block w-full rounded-md border border-green-600 px-4 py-3"
+                  />
+                </div>
+                <div class="flex flex-col gap-1">
+                  <label for="role" class="text-base font-bold">Role</label>
+                  <select
+                    name="role"
+                    id="role"
+                    class="inline-block w-full rounded-md border border-green-600 px-4 py-3"
+                  >
+                    <option value="">--Select your role--</option>
+                    <option value="Student">Student</option>
+                    <option value="Admin">Admin</option>
+                  </select>
+                </div>
+                <input
+                  type="submit"
+                  value="SIGN UP"
+                  class="mt-6 rounded-md bg-green-600 px-4 py-4 text-white"
+                />
+              </form>
+            </div>
+            <p>
+              Already have an account?
+              <a href="/signIn" class="font-semibold hover:cursor-pointer"
+                >Sign In</a
+              >
+            </p>
+          </div>
+        </div>
+        <div class="flex-1">
+          <img
+            src="/images/signUp.jpg"
+            alt="A man reading a book"
+            class="h-full"
+          />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

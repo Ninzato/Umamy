@@ -1,7 +1,6 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
+const bcrypt = require("bcryptjs");
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     /**
@@ -13,12 +12,54 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  User.init({
-    email: DataTypes.STRING,
-    password: DataTypes.STRING
-  }, {
-    sequelize,
-    modelName: 'User',
-  });
+  User.init(
+    {
+      email: {
+        type: DataTypes.STRING,
+        validate: {
+          notEmpty: {
+            msg: "Email cannot be empty!",
+          },
+        },
+      },
+      password: {
+        type: DataTypes.STRING,
+        validate: {
+          notEmpty: {
+            msg: "Password cannot be empty!",
+          },
+          isStrongPassword() {
+            const passwordPattern =
+              /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+            if (!passwordPattern.test(this.password)) {
+              throw new Error(
+                `Your password is too weak! You're not worthy of this website`,
+              );
+            }
+          },
+        },
+      },
+      role: {
+        type: DataTypes.STRING,
+        validate: {
+          notEmpty: {
+            msg: "Role cannot be empty",
+          },
+        },
+      },
+    },
+    {
+      hooks: {
+        beforeCreate: (User) => {
+          const salt = bcrypt.genSaltSync(8);
+          const hash = bcrypt.hashSync(User.password, salt);
+
+          User.password = hash;
+        },
+      },
+      sequelize,
+      modelName: "User",
+    },
+  );
   return User;
 };
