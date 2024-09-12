@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Profile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/dist/styles.css" />
+  </head>
+  <body class="flex min-h-screen flex-col">
+    <header>
+      <nav class="flex items-center justify-center gap-[4.375rem] py-8">
+        <img src="/images/logo.svg" alt="Umamy logo" />
+        <p class="font-semibold">Categories</p>
+        <form action="" method="post" class="relative">
+          <input
+            type="text"
+            class="w-[340px] rounded-full border border-black px-5 py-2.5"
+          />
+          <img
+            src="/images/iconSearch.svg"
+            alt="Search Icon"
+            class="absolute right-5 top-3"
+          />
+        </form>
+        <img src="/images/iconCart.svg" alt="Cart icon" />
+        <a
+          href="/userProfile"
+          class="rounded-md bg-green-600 px-5 py-2.5 text-white"
+          >SIGN OUT</a
+        >
+      </nav>
+    </header>
+    <main>
+      <div
+        class="flex flex-col items-center justify-center gap-5 bg-[#BBD9C1] pb-2.5 pt-[50px] text-green-800"
+      >
+        <p class="text-4xl font-bold">Your Learning</p>
+        <div class="flex gap-8">
+          <a href="/userCourses">All Courses</a>
+          <a href="/userCourses?status=enrolled">Enrolled</a>
+          <a href="/userCourses?status=completed">Completed</a>
+        </div>
+      </div>
+      <div class="flex items-center justify-center">
+        <div class="my-12 grid grid-cols-4 gap-5">
+            <% userData.UserCourses.forEach(el => { %>
+                <div
+                    class="flex w-fit flex-col items-center justify-center gap-2.5 rounded-md border border-green-600/[.4] px-2.5 py-2.5 text-green-800"
+                >
+                    <div class="relative overflow-hidden h-[247px] w-[228px]">
+                      <img
+                      src="/images/signIn.jpg"
+                      alt="Course cover"
+                      class="absolute top-0 left-0 w-full h-full rounded-md object-cover"
+                      />
+                    </div>
+                    <div class="flex flex-col items-center leading-snug">
+                      <p class="font-bold"><%= el.Course.title %></p>
+                      <p class="font-light italic text-xs"><%= el.Course.author %></p>
+                      <p class="font-medium">Status: <%= el.status %></p>
+                    </div>
+                    <% if (el.status == 'enrolled') { %>
+                      <a
+                      href=""
+                      class="font-semibold w-full rounded-md bg-green-600 px-5 py-2.5 text-center text-white"
+                      >Mark As Complete</a
+                      >
+                    <% } else if(el.status == 'completed' ) { %>
+                      <a
+                      href=""
+                      class="font-semibold w-full rounded-md bg-gray-400 px-5 py-2.5 text-center text-white pointer-events-none"
+                      >Completed</a
+                      >
+                    <% } %>
+                </div>
+            <% }) %>
+        </div>
+      </div>
+    </main>
+    <footer
+      class="mt-auto flex items-center justify-center bg-[#5C9F69] py-20 text-white"
+    >
+      <p class="text-lg font-bold">Hacktiv8 RMT-53 Phase Project</p>
+    </footer>
+  </body>
+</html>
