@@ -1,4 +1,5 @@
 const { User } = require("../models");
+const bcrypt = require("bcryptjs");
 
 class RidzaController {
   static async signUpForm(req, res) {
@@ -27,8 +28,9 @@ class RidzaController {
   }
 
   static async signInForm(req, res) {
+    const { errors } = req.query;
     try {
-      res.send("signinfomr");
+      res.render("SignInForm", { errors });
     } catch (err) {
       console.log(err);
       res.send(err.message);
@@ -38,6 +40,22 @@ class RidzaController {
   static async signInPost(req, res) {
     const { email, password } = req.body;
     try {
+      const user = await User.findOne({
+        where: {
+          email: email,
+        },
+      });
+
+      if (user) {
+        const isValidPassword = bcrypt.compareSync(password, user.password);
+
+        if (isValidPassword) {
+          return res.send("Masukkk");
+        } else {
+          const errors = ["Wrong password! Try again"];
+          return res.redirect(`/signIn?errors=${errors}`);
+        }
+      }
       res.send(req.body);
     } catch (err) {
       console.log(err);
