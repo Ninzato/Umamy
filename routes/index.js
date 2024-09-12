@@ -12,7 +12,6 @@ router.post("/signUp", RidzaController.signUpPost);
 // Sign In
 router.get("/signIn", RidzaController.signInForm);
 router.post("/signIn", RidzaController.signInPost);
-
 // router.use((req, res, next) => {
 //   if (!req.session.userId) {
 //     res.redirect("/signIn?errors=Please login first!"); //kalau user id gada di session, tendang balik ke login page
@@ -28,4 +27,9 @@ router.post("/userProfile", RidzaController.userProfilePost);
 // UserCourses
 router.get("/userCourses", RidzaController.userCourses);
 
+//Search Courses by Category
+router.get("/category/:categoryId", Controller.showCoursesByCategory);
+router.get("/admin", Controller.showAdminTable);
+router.get("/admin/courses/:id/delete", Controller.adminDeleteCourse);
+router.get("/admin/users", Controller.adminShowsUsers);
 module.exports = router;

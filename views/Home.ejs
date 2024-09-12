@@ -1,11 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
-</head>
-<body>
+  </head>
+  <body>
     <%- include("./partials/Navbar.ejs") %>
-</body>
+    <!-- Banner -->
+    <!--Sementara-->
+    <div class="w-full h-[33rem]">
+      <img
+        class="w-full h-full object-cover"
+        src="https://plus.unsplash.com/premium_vector-1698192041909-3a5a4a6ee089?q=80&w=2640&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        alt=""
+      />
+    </div>
+    <!-- -->
+
+    <!-- Title -->
+    <div
+      class="flex justify-center items-center w-full h-[6.5rem] bg-[#BBD9C1] px-[20rem] py-[1.5rem]"
+    >
+      <h1 class="w-1/3 text-3xl font-extrabold drop-shadow-md">UMAMY</h1>
+      <h2 class="w-2/3 text-center text-[#1D5B29] text-lg">
+        Expand your horizons with our comprehensive courses, tailored to help
+        you succeed in today's fast-paced environment.
+      </h2>
+    </div>
+    <!--  -->
+
+    <!-- Courses -->
+    <div class="w-full h-full flex justify-center items-center flex-col px-60 py-2">
+      <h1 class="p-6 font-bold grid-flow-col">Top Courses</h1>
+      <!-- Course Card -->
+       <!-- Validation to check whether there are courses or empty-->
+       <% if(courses.length){ %>
+        <% courses.forEach(e => { %>
+            <div class="flex flex-col w-full h-52">
+                <article
+                  class="rounded-xl border-2 border-[#009951] bg-[#F5F5F5]"
+                >
+                <div class="relative w-full h-48 flex items-center gap-4">
+                    <a href="#" class="w-1/3 h-full">
+                      <img
+                        alt=""
+                        src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8YXZhdGFyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60"
+                        class="w-full h-full object-cover"
+                        style="border-radius: 10px 0 0 10px;"
+                      />
+                    </a>
+        
+                    <div class="w-2/3 p-2">
+                      <h3 class="font-medium sm:text-lg">
+                        <a href="#" class="hover:underline">
+                          <%= e.title %>
+                        </a>
+                      </h3>
+        
+                      <p class="line-clamp-2 text-sm text-gray-700">
+                        <%= e.description %>
+                      </p>
+        
+                      <div class="mt-2 sm:flex sm:items-center sm:gap-2">
+                        <div class="flex items-center gap-1 text-gray-500">
+                          <p class="text-xs">by: <%= e.author %></p>
+                        </div>
+                      </div>
+                      <!-- TODO: ratingnya masih perlu dibenerin -->
+                      <div class="flex py-2">
+                        <div class="mr-2">4.6</div>
+                        <div class="flex">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half"></i>
+                        </div>
+                      </div>
+                      <a href="/buy/<%= e.id %>"><button class="bg-[#009951] rounded-lg px-6 py-1 text-[#F5F5F5] cursor-pointer">BUY</button></a>
+                    </div>
+                  </div>
+                </article>
+              </div>
+        <% }); %>
+       <% } else { %>
+        <h3 class="py-6">There is no available course at the moment.</h3>
+       <% } %>
+      <!-- -->
+    </div>
+    <!-- -->
+
+    <!-- Footer-->
+     <div class="w-full h-44 bg-[#5C9F69] flex justify-center items-center">
+        <h3 class="font-bold text-[#F5F5F5]">Hacktiv8 RMT-53 Phase 1 Project</h3>
+     </div>
+  </body>
 </html>
