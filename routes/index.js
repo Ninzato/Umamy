@@ -13,4 +13,15 @@ router.post("/signUp", RidzaController.signUpPost);
 router.get("/signIn", RidzaController.signInForm);
 router.post("/signIn", RidzaController.signInPost);
 
+
+
+
+
+
+
+
+
+//Search Courses by Category
+router.get("/category/:categoryId", Controller.showCoursesByCategory);
+
 module.exports = router;
