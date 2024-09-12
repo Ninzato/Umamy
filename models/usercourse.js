@@ -7,6 +7,19 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
+    async makeComplete() {
+      await this.update(
+        {
+          status: "completed",
+        },
+        {
+          where: {
+            id: this.id,
+          },
+        },
+      );
+    }
+
     static associate(models) {
       // define association here
       UserCourse.belongsTo(models.User);

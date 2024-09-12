@@ -1,6 +1,6 @@
-const { User, UserCourse, Course } = require("../models");
+const { User, UserCourse, Course, UserProfile } = require("../models");
 const bcrypt = require("bcryptjs");
-const { Op } = require("sequelize");
+const { Op, where } = require("sequelize");
 const EricaController = require("./EricaController.js");
 
 class RidzaController {
@@ -17,8 +17,9 @@ class RidzaController {
   static async signUpPost(req, res) {
     const { email, password, role } = req.body;
     try {
+      //   let firstName = (lastName = bio = "");
       await User.create({ email, password, role });
-      await EricaController.sendWelcomeEmail(email);
+      //   await UserProfile.create;
       res.redirect("/signIn");
     } catch (err) {
       if (err.name === "SequelizeValidationError") {
@@ -68,10 +69,14 @@ class RidzaController {
   }
 
   static async userProfileForm(req, res) {
-    const { errors } = req.query;
+    const { id } = req.params;
     try {
-      //   res.send("userprofile!");
-      res.render("userProfileForm", { errors });
+      const userProfile = await UserProfile.findOne({
+        where: {
+          id: id,
+        },
+      });
+      res.render("userProfileForm", { userProfile });
     } catch (err) {
       console.log(err);
       res.send(err.message);
@@ -79,9 +84,27 @@ class RidzaController {
   }
 
   static async userProfilePost(req, res) {
-    const { errors } = req.query;
+    const { firstName, lastName, bio } = req.body;
+    const { id } = req.params;
     try {
-      res.render("userProfilePost", { errors });
+      const userProfile = await UserProfile.findOne({
+        where: {
+          id: id,
+        },
+      });
+      userProfile.update(
+        {
+          firstName,
+          lastName,
+          bio,
+        },
+        {
+          where: {
+            id: id,
+          },
+        },
+      );
+      res.redirect(`/userProfile/${id}`);
     } catch (err) {
       console.log(err);
       res.send(err.message);
@@ -111,6 +134,22 @@ class RidzaController {
       const userData = await User.findOne(options);
       //   res.send(userData);
       res.render("userCourses", { userData });
+    } catch (err) {
+      console.log(err);
+      res.send(err.message);
+    }
+  }
+
+  static async makeComplete(req, res) {
+    const { id } = req.params;
+    try {
+      const userCourse = await UserCourse.findOne({
+        where: {
+          id: id,
+        },
+      });
+      userCourse.makeComplete();
+      res.redirect("/userCourses");
     } catch (err) {
       console.log(err);
       res.send(err.message);

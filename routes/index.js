@@ -21,11 +21,12 @@ router.post("/signIn", RidzaController.signInPost);
 // });
 
 // UserProfile
-router.get("/userProfile", RidzaController.userProfileForm);
-router.post("/userProfile", RidzaController.userProfilePost);
+router.get("/userProfile/:id", RidzaController.userProfileForm);
+router.post("/userProfile/:id", RidzaController.userProfilePost);
 
 // UserCourses
 router.get("/userCourses", RidzaController.userCourses);
+router.get("/userCourses/:id/makeComplete", RidzaController.makeComplete);
 
 //Search Courses by Category
 router.get("/category/:categoryId", Controller.showCoursesByCategory);

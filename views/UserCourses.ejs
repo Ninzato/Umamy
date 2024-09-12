@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>User Profile</title>
+    <title>User Courses</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -67,7 +67,7 @@
                     </div>
                     <% if (el.status == 'enrolled') { %>
                       <a
-                      href=""
+                      href="/userCourses/<%= el.id %>/makeComplete"
                       class="font-semibold w-full rounded-md bg-green-600 px-5 py-2.5 text-center text-white"
                       >Mark As Complete</a
                       >

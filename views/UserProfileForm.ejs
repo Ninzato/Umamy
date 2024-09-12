@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Courses</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/dist/styles.css" />
+  </head>
+  <body class="flex min-h-screen flex-col">
+    <header>
+      <nav class="flex items-center justify-center gap-[4.375rem] py-8">
+        <img src="/images/logo.svg" alt="Umamy logo" />
+        <p class="font-semibold">Categories</p>
+        <form action="" method="post" class="relative">
+          <input
+            type="text"
+            class="w-[340px] rounded-full border border-black px-5 py-2.5"
+          />
+          <img
+            src="/images/iconSearch.svg"
+            alt="Search Icon"
+            class="absolute right-5 top-3"
+          />
+        </form>
+        <img src="/images/iconCart.svg" alt="Cart icon" />
+        <a
+          href="/userProfile"
+          class="rounded-md bg-green-600 px-5 py-2.5 text-white"
+          >SIGN OUT</a
+        >
+      </nav>
+    </header>
+    <main>
+      <div class="flex items-center justify-center">
+        <div class="my-12 flex flex-col items-center justify-center">
+          <div class="flex flex-col gap-10">
+            <div>
+              <h1 class="text-center text-5xl font-bold leading-snug">
+                Profile
+              </h1>
+              <p class="text-center text-xl font-light leading-snug">
+                Add some information about yourself
+              </p>
+            </div>
+            <form method="post" class="flex w-full flex-col gap-4">
+              <div class="flex flex-col gap-1">
+                <label for="firstName" class="text-base font-bold"
+                  >First Name</label
+                >
+                <input
+                  type="firstName"
+                  name="firstName"
+                  id="firstName"
+                  placeholder="Your first name"
+                  class="inline-block w-full rounded-md border border-green-600 px-4 py-3"
+                  value="<%= userProfile.firstName %>"
+                />
+              </div>
+              <div class="flex flex-col gap-1">
+                <label for="lastName" class="text-base font-bold"
+                  >Last Name</label
+                >
+                <input
+                  type="lastName"
+                  name="lastName"
+                  id="lastName"
+                  placeholder="Your last name"
+                  class="inline-block w-full rounded-md border border-green-600 px-4 py-3"
+                  value="<%= userProfile.lastName %>"
+                />
+              </div>
+              <div class="flex flex-col gap-1">
+                <label for="bio" class="text-base font-bold">Bio</label>
+                <input
+                  type="bio"
+                  name="bio"
+                  id="bio"
+                  placeholder="Your bio"
+                  class="inline-block w-full rounded-md border border-green-600 px-4 py-3"
+                  value="<%= userProfile.bio %>"
+                />
+              </div>
+              <input
+                type="submit"
+                value="Update Profile"
+                class="mt-6 rounded-md bg-green-600 px-4 py-4 text-white"
+              />
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer
+      class="mt-auto flex items-center justify-center bg-[#5C9F69] py-20 text-white"
+    >
+      <p class="text-lg font-bold">Hacktiv8 RMT-53 Phase Project</p>
+    </footer>
+  </body>
+</html>
