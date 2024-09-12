@@ -14,27 +14,7 @@
   </head>
   <body class="flex min-h-screen flex-col">
     <header>
-      <nav class="flex items-center justify-center gap-[4.375rem] py-8">
-        <img src="/images/logo.svg" alt="Umamy logo" />
-        <p class="font-semibold">Categories</p>
-        <form action="" method="post" class="relative">
-          <input
-            type="text"
-            class="w-[340px] rounded-full border border-black px-5 py-2.5"
-          />
-          <img
-            src="/images/iconSearch.svg"
-            alt="Search Icon"
-            class="absolute right-5 top-3"
-          />
-        </form>
-        <img src="/images/iconCart.svg" alt="Cart icon" />
-        <a
-          href="/userProfile"
-          class="rounded-md bg-green-600 px-5 py-2.5 text-white"
-          >SIGN OUT</a
-        >
-      </nav>
+      <%- include("./partials/Navbar.ejs") %>
     </header>
     <main>
       <div
@@ -42,16 +22,16 @@
       >
         <p class="text-4xl font-bold">Your Learning</p>
         <div class="flex gap-8">
-          <a href="/userCourses">All Courses</a>
-          <a href="/userCourses?status=enrolled">Enrolled</a>
-          <a href="/userCourses?status=completed">Completed</a>
+          <a href="/userCourses/<%= id %>?id=<%= id %>">All Courses</a>
+          <a href="/userCourses/<%= id %>?status=enrolled&id=<%= id %>">Enrolled</a>
+          <a href="/userCourses/<%= id %>?status=completed&id=<%= id %>">Completed</a>
         </div>
       </div>
       <div class="flex items-center justify-center">
         <div class="my-12 grid grid-cols-4 gap-5">
             <% userData.UserCourses.forEach(el => { %>
                 <div
-                    class="flex w-fit flex-col items-center justify-center gap-2.5 rounded-md border border-green-600/[.4] px-2.5 py-2.5 text-green-800"
+                    class="flex w-fit flex-col items-center justify-center gap-2.5 rounded-md border border-[#009951]/[.4] px-2.5 py-2.5 text-green-800"
                 >
                     <div class="relative overflow-hidden h-[247px] w-[228px]">
                       <img
@@ -68,7 +48,7 @@
                     <% if (el.status == 'enrolled') { %>
                       <a
                       href="/userCourses/<%= el.id %>/makeComplete"
-                      class="font-semibold w-full rounded-md bg-green-600 px-5 py-2.5 text-center text-white"
+                      class="font-semibold w-full rounded-md bg-[#009951] px-5 py-2.5 text-center text-white"
                       >Mark As Complete</a
                       >
                     <% } else if(el.status == 'completed' ) { %>

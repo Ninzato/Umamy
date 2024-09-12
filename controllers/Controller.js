@@ -3,8 +3,11 @@ const { Course, User } = require("../models");
 
 class Controller {
   static async home(req, res) {
-    const { search } = req.query;
+    const { search, id } = req.query;
     try {
+      const isSignedIn = !!req.session.userId;
+      // console.log(isSignedIn);
+
       const opt = {
         order: [["rating", "DESC"]],
         limit: 6,
@@ -13,14 +16,16 @@ class Controller {
       if (search) {
         delete opt.order;
         delete opt.limit;
-        opt.where.title = {
-          [Op.iLike]: "%search%",
+        opt.where = {
+          title: {
+            [Op.iLike]: `%${search}%`,
+          },
         };
       }
       const courses = await Course.findAll(opt);
-      console.log(courses);
+      // console.log(courses);
       // res.send(courses);
-      res.render("Home", { courses });
+      res.render("Home", { courses, isSignedIn, id });
     } catch (err) {
       console.log(err.message);
       res.send(err.message);
@@ -29,8 +34,10 @@ class Controller {
 
   static async showCoursesByCategory(req, res) {
     const { categoryId } = req.params;
-    const { search } = req.query;
+    const { search, id } = req.query;
     try {
+      const isSignedIn = !!req.session.userId;
+
       const opt = {
         where: { CategoryId: categoryId },
       };
@@ -41,7 +48,7 @@ class Controller {
       }
       const courses = await Course.findAll(opt);
       console.log(courses);
-      res.render("Home", { courses });
+      res.render("Home", { courses, isSignedIn, id });
     } catch (err) {
       console.log(err.message);
       res.render(err.message);

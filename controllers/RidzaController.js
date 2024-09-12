@@ -16,9 +16,11 @@ class RidzaController {
   static async signUpPost(req, res) {
     const { email, password, role } = req.body;
     try {
-      //   let firstName = (lastName = bio = "");
-      await User.create({ email, password, role });
-      //   await UserProfile.create;
+      const firstName = "";
+      const lastName = "";
+      const bio = "";
+      const userId = await User.create({ email, password, role });
+      await UserProfile.create({ firstName, lastName, bio, UserId: userId.id });
       res.redirect("/signIn");
     } catch (err) {
       if (err.name === "SequelizeValidationError") {
@@ -54,7 +56,12 @@ class RidzaController {
 
         if (isValidPassword) {
           req.session.userId = user.id;
-          return res.redirect("/userProfile");
+          if (user.role === "Admin") {
+            req.session.admin = user.role;
+            return res.redirect(`/admin`);
+          } else {
+            return res.redirect(`/?id=${user.id}`);
+          }
         } else {
           const errors = ["Wrong password! Try again"];
           return res.redirect(`/signIn?errors=${errors}`);
@@ -70,12 +77,13 @@ class RidzaController {
   static async userProfileForm(req, res) {
     const { id } = req.params;
     try {
+      const isSignedIn = !!req.session.userId;
       const userProfile = await UserProfile.findOne({
         where: {
           id: id,
         },
       });
-      res.render("userProfileForm", { userProfile });
+      res.render("userProfileForm", { userProfile, isSignedIn, id });
     } catch (err) {
       console.log(err);
       res.send(err.message);
@@ -111,8 +119,10 @@ class RidzaController {
   }
 
   static async userCourses(req, res) {
-    const { status } = req.query;
+    const { status, id } = req.query;
     try {
+      const isSignedIn = !!req.session.userId;
+
       const options = {
         where: {
           id: 2,
@@ -132,7 +142,7 @@ class RidzaController {
       }
       const userData = await User.findOne(options);
       //   res.send(userData);
-      res.render("userCourses", { userData });
+      res.render("userCourses", { userData, isSignedIn, id });
     } catch (err) {
       console.log(err);
       res.send(err.message);
@@ -148,7 +158,17 @@ class RidzaController {
         },
       });
       userCourse.makeComplete();
-      res.redirect("/userCourses");
+      res.redirect(`/userCourses/${id}`);
+    } catch (err) {
+      console.log(err);
+      res.send(err.message);
+    }
+  }
+
+  static async signOut(req, res) {
+    try {
+      req.session.destroy();
+      res.redirect("/");
     } catch (err) {
       console.log(err);
       res.send(err.message);

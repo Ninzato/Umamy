@@ -13,29 +13,7 @@
     <link rel="stylesheet" href="/dist/styles.css" />
   </head>
   <body class="flex min-h-screen flex-col">
-    <header>
-      <nav class="flex items-center justify-center gap-[4.375rem] py-8">
-        <img src="/images/logo.svg" alt="Umamy logo" />
-        <p class="font-semibold">Categories</p>
-        <form action="" method="post" class="relative">
-          <input
-            type="text"
-            class="w-[340px] rounded-full border border-black px-5 py-2.5"
-          />
-          <img
-            src="/images/iconSearch.svg"
-            alt="Search Icon"
-            class="absolute right-5 top-3"
-          />
-        </form>
-        <img src="/images/iconCart.svg" alt="Cart icon" />
-        <a
-          href="/userProfile"
-          class="rounded-md bg-green-600 px-5 py-2.5 text-white"
-          >SIGN OUT</a
-        >
-      </nav>
-    </header>
+    <header><%- include("./partials/Navbar.ejs") %></header>
     <main>
       <div class="flex items-center justify-center">
         <div class="my-12 flex flex-col items-center justify-center">
@@ -58,7 +36,7 @@
                   name="firstName"
                   id="firstName"
                   placeholder="Your first name"
-                  class="inline-block w-full rounded-md border border-green-600 px-4 py-3"
+                  class="inline-block w-full rounded-md border border-[#009951] px-4 py-3"
                   value="<%= userProfile.firstName %>"
                 />
               </div>
@@ -71,7 +49,7 @@
                   name="lastName"
                   id="lastName"
                   placeholder="Your last name"
-                  class="inline-block w-full rounded-md border border-green-600 px-4 py-3"
+                  class="inline-block w-full rounded-md border border-[#009951] px-4 py-3"
                   value="<%= userProfile.lastName %>"
                 />
               </div>
@@ -82,14 +60,14 @@
                   name="bio"
                   id="bio"
                   placeholder="Your bio"
-                  class="inline-block w-full rounded-md border border-green-600 px-4 py-3"
+                  class="inline-block w-full rounded-md border border-[#009951] px-4 py-3"
                   value="<%= userProfile.bio %>"
                 />
               </div>
               <input
                 type="submit"
                 value="Update Profile"
-                class="mt-6 rounded-md bg-green-600 px-4 py-4 text-white"
+                class="mt-6 rounded-md bg-[#009951] px-4 py-4 text-white"
               />
             </form>
           </div>

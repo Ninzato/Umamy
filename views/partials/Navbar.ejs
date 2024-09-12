@@ -2,8 +2,12 @@
 <script src="https://kit.fontawesome.com/e403ff4e12.js" crossorigin="anonymous"></script>
 <script src="//unpkg.com/alpinejs" defer></script>
 
-<ul class="flex justify-between items-center px-60 py-8">
-    <li class="font-extrabold text-2xl text-[#009951] drop-shadow-md"><a href="/">UMAMY</a></li>
+<ul class="flex justify-center items-center py-8 gap-10">
+    <li>
+      <a href="/?id=<%= id %>">
+        <img src="/images/logo.svg" alt="Umamy logo" />
+      </a>
+    </li>
     <li>
         <div class="relative inline-block text-center w-[9rem]" x-data="{ open: false }">
             <button @click="open = !open" class="w-full bg-white text-gray-700 py-2 px-4 rounded inline-flex justify-between items-center">
@@ -13,54 +17,42 @@
           
             <div x-show="open" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95" class="absolute z-50 mt-2 w-full rounded-md   shadow-lg bg-white border border-gray-200">
               <div class="py-1 text-gray-700 text-sm" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-                <a href="/category/1" class="block px-4 py-2  hover:bg-gray-100" role="menuitem">Web Development</a>
-                <a href="/category/2" class="block px-4 py-2 hover:bg-gray-100" role="menuitem">Photography</a>
-                <a href="/category/3" class="block px-4 py-2 hover:bg-gray-100" role="menuitem">Graphic Design</a>
-                <a href="/category/4" class="block px-4 py-2 hover:bg-gray-100" role="menuitem">Gardening</a>
-                <a href="/category/5" class="block px-4 py-2 hover:bg-gray-100" role="menuitem">Self Improvement</a>
+                <a href="/category/1?id=<%= id %>" class="block px-4 py-2  hover:bg-gray-100" role="menuitem">Web Development</a>
+                <a href="/category/2?id=<%= id %>" class="block px-4 py-2 hover:bg-gray-100" role="menuitem">Photography</a>
+                <a href="/category/3?id=<%= id %>" class="block px-4 py-2 hover:bg-gray-100" role="menuitem">Graphic Design</a>
+                <a href="/category/4?id=<%= id %>" class="block px-4 py-2 hover:bg-gray-100" role="menuitem">Gardening</a>
+                <a href="/category/5?id=<%= id %>" class="block px-4 py-2 hover:bg-gray-100" role="menuitem">Self Improvement</a>
               </div>
             </div>
     </li>
     <li>
-        <div class="relative">
-            <form action="">
-            <label for="search" class="sr-only"> Search </label>
-          
-            <input
-              type="text"
-              id="search"
-              name="search"
-              class="w-full flex-1 rounded-3xl border-2 border-slate-800 py-2.5 ps-10 pe-10 shadow-sm sm:text-sm"
-            />
-          
-            <span class="absolute inset-y-0 end-0 grid w-10 place-content-center">
-              <button type="button" class="text-gray-600 hover:text-gray-700">
-                <span class="sr-only">Search</span>
-          
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="4"
-                  stroke="#009951"
-                  class="size-4"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-                  />
-                </svg>
-              </button>
-            </span>
-            </form>
-        </div>
+      <form action="" class="relative">
+        <input
+          type="text"
+          id="search"
+          name="search"
+          class="w-[340px] rounded-full border border-black px-5 py-2.5"
+        />
+        <img
+          src="/images/iconSearch.svg"
+          alt="Search Icon"
+          class="absolute right-5 top-3"
+        />
+      </form>
     </li>
-    <li>
-        <!--TODO: ini masih perlu diubah sizenya-->
-        <i class="fa-solid fa-cart-shopping cursor-pointer"></i>
+    <% if (isSignedIn) { %>
+      <li>
+          <a href="/userCourses/<%= id %>?id=<%= id %>">My Learning</a>
+      </li>
+      <li>
+          <a href="/userProfile/<%= id %>?id=<%= id %>">My Profile</a>
+      </li>
+      <li>
+        <a href="/signOut"><button class="bg-[#009951] rounded-lg px-5 py-2.5 text-[#F5F5F5]">SIGN OUT</button></a>
     </li>
-    <li>
-        <a href="/signIn"><button class="bg-[#009951] rounded-lg px-4 py-2 text-[#F5F5F5]">SIGN IN</button></a>
-    </li>
+    <% } else { %>
+      <li>
+          <a href="/signIn"><button class="bg-[#009951] rounded-lg px-5 py-2.5 text-[#F5F5F5]">SIGN IN</button></a>
+      </li>
+    <% } %>
 </ul>

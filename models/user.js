@@ -52,11 +52,11 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       hooks: {
-        beforeCreate: (User) => {
+        beforeCreate: (user) => {
           const salt = bcrypt.genSaltSync(8);
-          const hash = bcrypt.hashSync(User.password, salt);
+          const hash = bcrypt.hashSync(user.password, salt);
 
-          User.password = hash;
+          user.password = hash;
         },
       },
       sequelize,
