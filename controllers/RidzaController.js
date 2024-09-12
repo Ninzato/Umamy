@@ -81,7 +81,6 @@ class RidzaController {
     try {
       const isSignedIn = !!req.session.userId;
       const userProfile = await UserProfile.getProfile(id);
-      console.log(userProfile);
       res.render("userProfileForm", { userProfile, isSignedIn, id });
     } catch (err) {
       console.log(err);
@@ -134,17 +133,20 @@ class RidzaController {
 
       let userData = await User.findOne(options);
 
-      if (status && userData.UserCourses.length > 0) {
-        options.include.where = {
-          status: {
-            [Op.iLike]: `%${status}%`,
+      if (status) {
+        options.include = {
+          model: UserCourse,
+          where: {
+            status: {
+              [Op.iLike]: `%${status}%`,
+            },
           },
+          include: Course,
         };
 
         userData = await User.findOne(options);
       }
       //   res.send(userData);
-      console.log(userData.UserCourses[0].Course, "<<<<<");
       res.render("userCourses", { userData, isSignedIn, id });
     } catch (err) {
       console.log(err);
@@ -160,8 +162,8 @@ class RidzaController {
           id: id,
         },
       });
-      userCourse.makeComplete();
-      res.redirect(`/userCourses/${id}`);
+      await userCourse.makeComplete();
+      res.redirect(`/userCourses/${userCourse.UserId}?id=${userCourse.UserId}`);
     } catch (err) {
       console.log(err);
       res.send(err.message);

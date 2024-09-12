@@ -28,7 +28,8 @@
         </div>
       </div>
       <div class="flex items-center justify-center">
-        <div class="my-12 grid grid-cols-4 gap-5">
+        <% if (userData) { %>
+          <div class="my-12 grid grid-cols-4 gap-5">
             <% userData.UserCourses.forEach(el => { %>
                 <div
                     class="flex w-fit flex-col items-center justify-center gap-2.5 rounded-md border border-[#009951]/[.4] px-2.5 py-2.5 text-green-800"
@@ -60,7 +61,12 @@
                     <% } %>
                 </div>
             <% }) %>
-        </div>
+          </div>
+          <% } else { %>
+            <div role="alert" class="rounded border-s-4 border-yellow-500 bg-red-50 p-4 m-8">
+              <strong class="block font-medium text-yellow-800 py-2 mx-4 my-2"> No Courses fit your sorting! </strong>
+            </div>
+          <% } %>
       </div>
     </main>
     <footer

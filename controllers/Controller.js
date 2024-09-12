@@ -90,7 +90,13 @@ class Controller {
         userCourses.forEach((el) => {
           takenCourses.push(el.CourseId);
         });
-        console.log(takenCourses, "<<<");
+
+        opt.where = {
+          id: {
+            [Op.notIn]: takenCourses,
+          },
+        };
+        courses = await Course.findAll(opt);
       }
 
       if (search && id) {
@@ -109,6 +115,7 @@ class Controller {
 
       // console.log(courses);
       // res.send(courses);
+
       res.render("Home", { courses, isSignedIn, id, roundRating });
     } catch (err) {
       console.log(err.message);
@@ -153,7 +160,13 @@ class Controller {
         userCourses.forEach((el) => {
           takenCourses.push(el.CourseId);
         });
-        console.log(takenCourses, "<<<");
+
+        opt.where = {
+          id: {
+            [Op.notIn]: takenCourses,
+          },
+        };
+        courses = await Course.findAll(opt);
       }
 
       if (search && id) {
@@ -170,7 +183,7 @@ class Controller {
         courses = await Course.findAll(opt);
       }
       // console.log(courses);
-      res.render("Home", { courses, isSignedIn, id });
+      res.render("Home", { courses, isSignedIn, id, roundRating });
     } catch (err) {
       console.log(err.message);
       res.render(err.message);
