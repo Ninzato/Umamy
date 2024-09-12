@@ -132,21 +132,12 @@ class Controller {
       const opt = {
         order: [["rating", "DESC"]],
         limit: 6,
-        where: {},
+        where: {
+          CategoryId: categoryId,
+        },
       };
 
       let courses = await Course.findAll(opt);
-
-      if (search) {
-        delete opt.order;
-        delete opt.limit;
-        opt.where = {
-          title: {
-            [Op.iLike]: `%${search}%`,
-          },
-        };
-        courses = await Course.findAll(opt);
-      }
 
       let userCourses;
       let takenCourses = [];
@@ -162,20 +153,7 @@ class Controller {
         });
 
         opt.where = {
-          id: {
-            [Op.notIn]: takenCourses,
-          },
-        };
-        courses = await Course.findAll(opt);
-      }
-
-      if (search && id) {
-        delete opt.order;
-        delete opt.limit;
-        opt.where = {
-          title: {
-            [Op.iLike]: `%${search}%`,
-          },
+          CategoryId: categoryId,
           id: {
             [Op.notIn]: takenCourses,
           },

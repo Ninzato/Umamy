@@ -17,13 +17,24 @@ class RidzaController {
   static async signUpPost(req, res) {
     const { email, password, role } = req.body;
     try {
-      const firstName = "";
-      const lastName = "";
-      const bio = "";
-      const userId = await User.create({ email, password, role });
-      await UserProfile.create({ firstName, lastName, bio, UserId: userId.id });
-      await Controller.sendWelcomeEmail(email);
-      res.redirect("/signIn");
+      const isEmailTaken = await User.findOne({ where: { email } });
+      if (!isEmailTaken) {
+        const firstName = "";
+        const lastName = "";
+        const bio = "";
+        const userId = await User.create({ email, password, role });
+        await UserProfile.create({
+          firstName,
+          lastName,
+          bio,
+          UserId: userId.id,
+        });
+        await Controller.sendWelcomeEmail(email);
+        res.redirect("/signIn");
+      } else {
+        const errors = ["Account found on this email! Try logging in"];
+        return res.redirect(`/signIn?errors=${errors}`);
+      }
     } catch (err) {
       if (err.name === "SequelizeValidationError") {
         const errors = err.errors.map((el) => el.message);
@@ -68,8 +79,10 @@ class RidzaController {
           const errors = ["Wrong password! Try again"];
           return res.redirect(`/signIn?errors=${errors}`);
         }
+      } else {
+        const errors = ["No account found! Ty again"];
+        return res.redirect(`/signIn?errors=${errors}`);
       }
-      res.send(req.body);
     } catch (err) {
       console.log(err);
       res.send(err.message);
@@ -123,12 +136,12 @@ class RidzaController {
 
       const options = {
         where: {
-          id: id,  
+          id: id,
         },
         include: [
           {
             model: UserCourse,
-            include: [Course], 
+            include: [Course],
           },
         ],
       };

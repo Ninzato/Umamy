@@ -2,7 +2,7 @@
   "development": {
     "username": "postgres",
     "password": "belajarduluyagesya",
-    "database": "umamy",
+    "database": "umamy2",
     "host": "localhost",
     "dialect": "postgres"
   },
