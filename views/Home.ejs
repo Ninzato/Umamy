@@ -63,20 +63,26 @@
                       </p>
         
                       <div class="mt-2 sm:flex sm:items-center sm:gap-2">
-                        <div class="flex items-center gap-1 text-gray-500">
+                        <div class="flex flex-col justify-center-center gap-1 text-gray-500">
                           <p class="text-xs">by: <%= e.author %></p>
+                          <p class="text-xs">Duration <%= e.duration %> mins.</p>
                         </div>
                       </div>
                       <!-- TODO: ratingnya masih perlu dibenerin -->
                       <div class="flex py-2">
-                        <div class="mr-2">4.6</div>
+                        <div class="mr-2"><%= e.rating %></div>
                         <div class="flex">
+                          <% let rating = roundRating(e.rating) %>
+                          <% for(let i = 0 ; i < rating ; i++){ %>
                             <i class="fa-solid fa-star"></i>
+                          <% } %>
+                        </div>
+                        <!-- <div class="flex">
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star-half"></i>
-                        </div>
+                        </div> -->
                       </div>
                       <a href="/enroll/<%= e.id %>?status=enrolled&CourseId=<%= e.id %>&UserId=<%= id %>"><button class="bg-[#009951] rounded-lg px-6 py-1 text-[#F5F5F5] cursor-pointer">Enroll</button></a>
                     </div>
