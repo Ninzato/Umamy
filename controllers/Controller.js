@@ -1,7 +1,7 @@
 const { Op } = require("sequelize");
 const { Course, User, UserCourse, UserProfile } = require("../models");
 const nodeMailer = require("nodemailer");
-const roundRating = require("../helpers/roundRating");
+const roundRating = require("../helpers/roundRating.js");
 require("dotenv").config();
 
 class Controller {
@@ -23,7 +23,7 @@ class Controller {
         subject: "Welcome to UMAMY!",
         html: `<h1>Hello welcome to UMAMY! Hopefully you'll enjoy learning here!</h1>`,
       });
-      console.log(info);
+      // console.log(info);
     } catch (err) {
       console.log(err.message);
     }
@@ -48,7 +48,7 @@ class Controller {
         html: `<h1>Hope you'll excel with your new skill and knowledge!</h1>
             <h2>Will definitely wait for you to enroll our other interesting courses soon!</h2>`,
       });
-      console.log(info);
+      // console.log(info);
     } catch (err) {
       console.log(err.message);
     }
@@ -219,7 +219,7 @@ class Controller {
     try {
       const deletedCourse = await Course.findByPk(id);
       await Course.destroy({ where: { id } });
-      console.log([deletedCourse.title, deletedCourse.author]);
+      // console.log([deletedCourse.title, deletedCourse.author]);
       res.redirect(
         `/admin?deletedCourse=${deletedCourse.title},${deletedCourse.author}`,
       );
@@ -244,7 +244,7 @@ class Controller {
         ],
       });
       // res.send(users);
-      console.log(users.UserProfile);
+      // console.log(users);
       res.render("AdminUsersTable", { users, deletedUser });
     } catch (err) {
       console.log(err.message);

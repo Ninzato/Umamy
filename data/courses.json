@@ -1,122 +1,137 @@
 [
   {
-    "title": "Zontrax",
-    "author": "Adrian",
+    "title": "The Key for Being Self Content",
+    "author": "Adrian Nelson",
     "duration": 400,
-    "description": "Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.\n\nAenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.",
+    "description": "Through this course we learn to dive into ourselves to reach our inner peace.",
     "rating": 5,
-    "CategoryId": 5
+    "CategoryId": 5,
+    "imageUrl": "https://images.unsplash.com/uploads/1413395496082cbc91228/43e39040?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
-    "title": "Stim",
-    "author": "Codi",
+    "title": "How to be Expert in Photography",
+    "author": "Codi Scott",
     "duration": 525,
-    "description": "Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.",
+    "description": "Here is the secret key of becoming expert in photography field.",
     "rating": 5,
-    "CategoryId": 2
+    "CategoryId": 2,
+    "imageUrl": "https://plus.unsplash.com/premium_photo-1674389991678-0836ca77c7f7?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
-    "title": "Domainer",
-    "author": "Edsel",
+    "title": "Insecure is Gone",
+    "author": "Edsel Lambert",
     "duration": 139,
-    "description": "Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.\n\nDuis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.",
+    "description": "Probably a lot of people experience a lot of misery that causing insecurity inevitable to enter to their mind. This course is perfect for you to release yourself from your insecurities.",
     "rating": 4,
-    "CategoryId": 5
+    "CategoryId": 5,
+    "imageUrl": "https://images.unsplash.com/photo-1682627101090-323012f3b832?q=80&w=1296&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
-    "title": "Kanlam",
-    "author": "Shanie",
+    "title": "Exposure Master",
+    "author": "Shanie White",
     "duration": 254,
-    "description": "Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.",
+    "description": "A professional photographer that has already been in photography field for almost 10 years will share the secret that beginner will not know.",
     "rating": 3,
-    "CategoryId": 2
+    "CategoryId": 2,
+    "imageUrl":"https://images.unsplash.com/photo-1507508108353-907b7293f475?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
-    "title": "Wrapsafe",
-    "author": "Hilliard",
+    "title": "Living A Green Life",
+    "author": "Hilliard Boyle",
     "duration": 481,
-    "description": "Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.\n\nPraesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.",
+    "description": "You can plant all the vegetable staples in your house!",
     "rating": 2,
-    "CategoryId": 5
+    "CategoryId": 4,
+    "imageUrl":"https://images.unsplash.com/photo-1621460248083-6271cc4437a8?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
-    "title": "Quo Lux",
-    "author": "Findley",
+    "title": "How to Make Friends",
+    "author": "Findley Cook",
     "duration": 218,
-    "description": "Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.",
+    "description": "Learn the key of communicating and grasp somebody's interest together with a professional life coach.",
     "rating": 5,
-    "CategoryId": 5
+    "CategoryId": 5,
+    "imageUrl":"https://images.unsplash.com/photo-1506869640319-fe1a24fd76dc?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
-    "title": "Tampflex",
-    "author": "Victoria",
+    "title": "Amazing Design",
+    "author": "Victoria Anderson",
     "duration": 328,
-    "description": "Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.\n\nProin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.",
+    "description": "Stressed out when learning designing? Let me show you the fun and effective way!",
     "rating": 3,
-    "CategoryId": 2
+    "CategoryId": 3,
+    "imageUrl":"https://plus.unsplash.com/premium_photo-1661382011487-cd3d6b1d9dff?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
-    "title": "Tampflex",
-    "author": "Glenn",
+    "title": "Fundamental of Web Development",
+    "author": "Glenn Blunt",
     "duration": 421,
-    "description": "Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.",
+    "description": "Step by steps into programming focusing on website building. Trust me, it works!.",
     "rating": 3,
-    "CategoryId": 1
+    "CategoryId": 1,
+    "imageUrl":"https://plus.unsplash.com/premium_photo-1678566154673-a728037f3f00?q=80&w=1302&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
-    "title": "Bigtax",
-    "author": "Raquel",
+    "title": "Introduction into Machine Learning",
+    "author": "Raquel Reyes",
     "duration": 336,
-    "description": "Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.\n\nProin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.",
+    "description": "Deep dive into the new field of machine learning technology.",
     "rating": 1,
-    "CategoryId": 1
+    "CategoryId": 1,
+    "imageUrl":"https://plus.unsplash.com/premium_photo-1682124651258-410b25fa9dc0?q=80&w=1321&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
-    "title": "Matsoft",
-    "author": "Martyn",
+    "title": "Gardening Tips",
+    "author": "Martyn John",
     "duration": 182,
-    "description": "Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.",
+    "description": "Here is a brief, clear direction for starting to gardening.",
     "rating": 4,
-    "CategoryId": 5
+    "CategoryId": 4,
+    "imageUrl":"https://images.unsplash.com/photo-1515150144380-bca9f1650ed9?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
-    "title": "Home Ing",
-    "author": "Consuela",
+    "title": "Wonder Style",
+    "author": "Consuela Chen",
     "duration": 495,
-    "description": "Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.",
+    "description": "Learn and thrive into the field of designing and styling.",
     "rating": 5,
-    "CategoryId": 5
+    "CategoryId": 3,
+    "imageUrl":"https://plus.unsplash.com/premium_photo-1666183669536-2ee4016b2985?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
-    "title": "Voltsillam",
-    "author": "Katalin",
+    "title": "Advanced Data Structure",
+    "author": "Katalin Lopez",
     "duration": 207,
-    "description": "Fusce consequat. Nulla nisl. Nunc nisl.",
+    "description": "Learning intermediate data structures that are widely used worldwide.",
     "rating": 2,
-    "CategoryId": 1
+    "CategoryId": 1,
+    "imageUrl":"https://plus.unsplash.com/premium_photo-1664297969735-71ce1580b10b?q=80&w=1487&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
-    "title": "Latlux",
-    "author": "Meryl",
+    "title": "Capture The Moments",
+    "author": "Barry Mendes",
     "duration": 191,
-    "description": "Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.",
+    "description": "Diving into the beauty of learning capturing special moments.",
     "rating": 1,
-    "CategoryId": 2
+    "CategoryId": 2,
+    "imageUrl":"https://images.unsplash.com/photo-1519674508766-db48af81ed1c?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
-    "title": "Tampflex",
-    "author": "Karlotte",
+    "title": "Intro to Data Science",
+    "author": "Karlotte C. Sprouse",
     "duration": 414,
-    "description": "Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.\n\nDuis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.",
+    "description": "Learning of the importance of datas and become expert in no time.",
     "rating": 5,
-    "CategoryId": 1
+    "CategoryId": 1,
+    "imageUrl":"https://plus.unsplash.com/premium_photo-1663023612721-e588768ef403?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
-    "title": "Treeflex",
-    "author": "Betsey",
+    "title": "Through the Lens",
+    "author": "Betsey Carl",
     "duration": 365,
-    "description": "Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.\n\nVestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.",
+    "description": "Becoming master in photography without high-end setups.",
     "rating": 4,
-    "CategoryId": 2
+    "CategoryId": 2,
+    "imageUrl": "https://images.unsplash.com/photo-1495121553079-4c61bcce1894?q=80&w=1281&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   }
 ]
