@@ -21,7 +21,13 @@ router.post("/signIn", RidzaController.signInPost);
 
 
 
+
+
+
 //Search Courses by Category
 router.get("/category/:categoryId", Controller.showCoursesByCategory);
+router.get("/admin", Controller.showAdminTable);
+router.get("/admin/courses/:id/delete", Controller.adminDeleteCourse);
+router.get("/admin/users", Controller.adminShowsUsers);
 
 module.exports = router;
