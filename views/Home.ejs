@@ -69,14 +69,19 @@
                       </div>
                       <!-- TODO: ratingnya masih perlu dibenerin -->
                       <div class="flex py-2">
-                        <div class="mr-2">4.6</div>
+                        <div class="mr-2"><%= e.rating %></div>
                         <div class="flex">
+                          <% let rating = roundRating(e.rating) %>
+                          <% for(let i = 0 ; i < rating ; i++){ %>
                             <i class="fa-solid fa-star"></i>
+                          <% } %>
+                        </div>
+                        <!-- <div class="flex">
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star-half"></i>
-                        </div>
+                        </div> -->
                       </div>
                       <a href="/buy/<%= e.id %>"><button class="bg-[#009951] rounded-lg px-6 py-1 text-[#F5F5F5] cursor-pointer">BUY</button></a>
                     </div>

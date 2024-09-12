@@ -1,6 +1,7 @@
 const { Op } = require("sequelize");
 const { Course, User, UserCourse, UserProfile } = require("../models");
 const nodeMailer = require("nodemailer");
+const roundRating = require("../helpers/roundRating");
 require("dotenv").config();
 
 class Controller {
@@ -76,7 +77,7 @@ class Controller {
       const courses = await Course.findAll(opt);
       // console.log(courses);
       // res.send(courses);
-      res.render("Home", { courses, isSignedIn, id });
+      res.render("Home", { courses, isSignedIn, id, roundRating });
     } catch (err) {
       console.log(err.message);
       res.send(err.message);
@@ -99,7 +100,7 @@ class Controller {
       }
       const courses = await Course.findAll(opt);
       console.log(courses);
-      res.render("Home", { courses, isSignedIn, id });
+      res.render("Home", { courses, isSignedIn, id , roundRating});
     } catch (err) {
       console.log(err.message);
       res.render(err.message);
