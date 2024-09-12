@@ -1,5 +1,6 @@
-const { User } = require("../models");
+const { User, UserCourse, Course } = require("../models");
 const bcrypt = require("bcryptjs");
+const { Op } = require("sequelize");
 
 class RidzaController {
   static async signUpForm(req, res) {
@@ -50,13 +51,64 @@ class RidzaController {
         const isValidPassword = bcrypt.compareSync(password, user.password);
 
         if (isValidPassword) {
-          return res.send("Masukkk");
+          req.session.userId = user.id;
+          return res.redirect("/userProfile");
         } else {
           const errors = ["Wrong password! Try again"];
           return res.redirect(`/signIn?errors=${errors}`);
         }
       }
       res.send(req.body);
+    } catch (err) {
+      console.log(err);
+      res.send(err.message);
+    }
+  }
+
+  static async userProfileForm(req, res) {
+    const { errors } = req.query;
+    try {
+      //   res.send("userprofile!");
+      res.render("userProfileForm", { errors });
+    } catch (err) {
+      console.log(err);
+      res.send(err.message);
+    }
+  }
+
+  static async userProfilePost(req, res) {
+    const { errors } = req.query;
+    try {
+      res.render("userProfilePost", { errors });
+    } catch (err) {
+      console.log(err);
+      res.send(err.message);
+    }
+  }
+
+  static async userCourses(req, res) {
+    const { status } = req.query;
+    try {
+      const options = {
+        where: {
+          id: 2,
+        },
+        include: {
+          model: UserCourse,
+          include: Course,
+        },
+      };
+
+      if (status) {
+        options.include.where = {
+          status: {
+            [Op.iLike]: `%${status}%`,
+          },
+        };
+      }
+      const userData = await User.findOne(options);
+      //   res.send(userData);
+      res.render("userCourses", { userData });
     } catch (err) {
       console.log(err);
       res.send(err.message);
