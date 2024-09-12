@@ -127,14 +127,15 @@ class RidzaController {
 
       const options = {
         where: {
-          id: id,
+          id: id,  
         },
-        include: {
-          model: UserCourse,
-          include: Course,
-        },
+        include: [
+          {
+            model: UserCourse,
+            include: [Course], 
+          },
+        ],
       };
-
       let userData = await User.findOne(options);
 
       if (status && userData.UserCourses.length > 0) {
