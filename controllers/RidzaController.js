@@ -71,7 +71,7 @@ class RidzaController {
           req.session.userId = user.id;
           if (user.role === "Admin") {
             req.session.admin = user.role;
-            return res.redirect(`/admin`);
+            return res.redirect(`/admin?id=${user.id}`);
           } else {
             return res.redirect(`/?id=${user.id}`);
           }
@@ -93,8 +93,14 @@ class RidzaController {
     const { id } = req.params;
     try {
       const isSignedIn = !!req.session.userId;
+      const isThisAdmin = !!req.session.admin;
       const userProfile = await UserProfile.getProfile(id);
-      res.render("userProfileForm", { userProfile, isSignedIn, id });
+      res.render("userProfileForm", {
+        userProfile,
+        isSignedIn,
+        isThisAdmin,
+        id,
+      });
     } catch (err) {
       console.log(err);
       res.send(err.message);
@@ -133,6 +139,7 @@ class RidzaController {
     const { status, id } = req.query;
     try {
       const isSignedIn = !!req.session.userId;
+      const isThisAdmin = !!req.session.admin;
 
       const options = {
         where: {
@@ -161,7 +168,7 @@ class RidzaController {
         userData = await User.findOne(options);
       }
       //   res.send(userData);
-      res.render("userCourses", { userData, isSignedIn, id });
+      res.render("userCourses", { userData, isSignedIn, isThisAdmin, id });
     } catch (err) {
       console.log(err);
       res.send(err.message);

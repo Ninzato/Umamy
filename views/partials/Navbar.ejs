@@ -48,6 +48,11 @@
       <li>
           <a href="/userProfile/<%= id %>?id=<%= id %>">My Profile</a>
       </li>
+      <% if (isThisAdmin) { %>
+        <li>
+          <a href="/admin/?id=<%= id %>">Admin Table</a>
+      </li>
+      <% } %>
       <li>
         <a href="/signOut"><button class="bg-[#009951] rounded-lg px-5 py-2.5 text-[#F5F5F5]">SIGN OUT</button></a>
     </li>

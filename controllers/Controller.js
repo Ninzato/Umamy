@@ -57,6 +57,7 @@ class Controller {
     const { search, id } = req.query;
     try {
       const isSignedIn = !!req.session.userId;
+      const isThisAdmin = !!req.session.admin;
       // console.log(isSignedIn);
 
       const opt = {
@@ -116,7 +117,7 @@ class Controller {
       // console.log(courses);
       // res.send(courses);
 
-      res.render("Home", { courses, isSignedIn, id, roundRating });
+      res.render("Home", { courses, isSignedIn, isThisAdmin, id, roundRating });
     } catch (err) {
       console.log(err.message);
       res.send(err.message);
@@ -128,6 +129,7 @@ class Controller {
     const { search, id } = req.query;
     try {
       const isSignedIn = !!req.session.userId;
+      const isThisAdmin = !!req.session.admin;
 
       const opt = {
         order: [["rating", "DESC"]],
@@ -161,7 +163,7 @@ class Controller {
         courses = await Course.findAll(opt);
       }
       // console.log(courses);
-      res.render("Home", { courses, isSignedIn, id, roundRating });
+      res.render("Home", { courses, isSignedIn, isThisAdmin, id, roundRating });
     } catch (err) {
       console.log(err.message);
       res.render(err.message);
@@ -181,11 +183,11 @@ class Controller {
   }
 
   static async showAdminTable(req, res) {
-    let { deletedCourse } = req.query;
+    let { deletedCourse, id } = req.query;
     if (deletedCourse != undefined) deletedCourse = deletedCourse.split(",");
     try {
       let courses = await Course.findAll();
-      res.render("AdminTable", { courses, deletedCourse });
+      res.render("AdminTable", { courses, deletedCourse, id });
     } catch (err) {
       console.log(err.message);
       res.send(err.message);

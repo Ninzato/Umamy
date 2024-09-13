@@ -1,33 +1,55 @@
 <script src="https://cdn.tailwindcss.com"></script>
-<script src="https://kit.fontawesome.com/e403ff4e12.js" crossorigin="anonymous"></script>
+<script
+  src="https://kit.fontawesome.com/e403ff4e12.js"
+  crossorigin="anonymous"
+></script>
 
 <style>
-    table {
-      font-family: arial, sans-serif;
-      border-collapse: collapse;
-      width: 100%;
-    }
-    th{
-      color: #5C9F69;
-      font-weight: 900;
-    }
-    td,
-    th {
-      border: 1px solid #009951;
-      text-align: center;
-      padding: 8px;
-    }
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  th {
+    color: #5c9f69;
+    font-weight: 900;
+  }
+  td,
+  th {
+    border: 1px solid #009951;
+    text-align: center;
+    padding: 8px;
+  }
 
-    tr:nth-child(even) {
-      background-color: #BBD9C1;
-    }
-  </style>
+  tr:nth-child(even) {
+    background-color: #bbd9c1;
+  }
+</style>
 
-<h1 class="py-6 text-center text-3xl text-[#009951] font-extrabold drop-shadow-lg">Admin Table</h1>
+<h1
+  class="py-6 text-center text-3xl font-extrabold text-[#009951] drop-shadow-lg"
+>
+  Admin Table
+</h1>
 <div class="px-64">
-    <div class="w-full flex justify-center items-center py-4">
-        <a href="/"><button class="px-10 py-2 mx-8 rounded-xl bg-[#BBD9C1]">Home</button></a>
-        <a href="/admin"><button class="px-10 py-2 mx-8 rounded-xl bg-[#BBD9C1]">Courses Table</button></a>
-        <a href="/admin/users"><button class="px-10 py-2 mx-8 rounded-lg bg-[#BBD9C1]">Users Table</button></a>
-        <a href="/signIn"><button class="px-10 py-2 mx-8 rounded-xl bg-[#BBD9C1]">Logout</button></a>
-    </div>
+  <div class="flex w-full items-center justify-center py-4">
+    <a href="/?id=<%= id %>"
+      ><button class="mx-8 rounded-xl bg-[#BBD9C1] px-10 py-2">Home</button></a
+    >
+    <a href="/admin"
+      ><button class="mx-8 rounded-xl bg-[#BBD9C1] px-10 py-2">
+        Courses Table
+      </button></a
+    >
+    <a href="/admin/users"
+      ><button class="mx-8 rounded-lg bg-[#BBD9C1] px-10 py-2">
+        Users Table
+      </button></a
+    >
+    <a href="/signOut"
+      ><button class="mx-8 rounded-xl bg-[#BBD9C1] px-10 py-2">
+        SignOut
+      </button></a
+    >
+  </div>
+</div>
