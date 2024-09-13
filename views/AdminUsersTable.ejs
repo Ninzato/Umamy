@@ -70,7 +70,7 @@
                 <td><%= e.bio %></td>
                 <td><%= e.UserCourses ? e.UserCourses.length : 0 %></td>
                 <td>
-                  <a href="/admin/users/<%= e.id %>/delete"><button class="button rounded-xl bg-[#009951] text-[#F5F5F5] px-4 py-2" onclick="return confirm(`Are you sure you want to delete this user named <%= e.UserProfile ? e.UserProfile.firstName : "" %> <%= e.UserProfile ? e.UserProfile.lastName : "" %>?`)">Delete</button></a>
+                  <a href="/admin/users/<%= e.id %>/delete?id=<%= id %>"><button class="button rounded-xl bg-[#009951] text-[#F5F5F5] px-4 py-2" onclick="return confirm(`Are you sure you want to delete this user named <%= e.UserProfile ? e.UserProfile.firstName : "" %> <%= e.UserProfile ? e.UserProfile.lastName : "" %>?`)">Delete</button></a>
                 </td>
               </tr>
         <% }); %>

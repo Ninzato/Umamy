@@ -196,12 +196,13 @@ class Controller {
 
   static async adminDeleteCourse(req, res) {
     const { id } = req.params;
+    const { id: adminId } = req.query;
     try {
       const deletedCourse = await Course.findByPk(id);
       await Course.destroy({ where: { id } });
       // console.log([deletedCourse.title, deletedCourse.author]);
       res.redirect(
-        `/admin?deletedCourse=${deletedCourse.title},${deletedCourse.author}`,
+        `/admin?id=${adminId}&deletedCourse=${deletedCourse.title},${deletedCourse.author}`,
       );
     } catch (err) {
       console.log(err.message);
@@ -210,7 +211,7 @@ class Controller {
   }
 
   static async adminShowsUsers(req, res) {
-    let { deletedUser } = req.query;
+    let { deletedUser, id } = req.query;
     try {
       let users = await User.findAll({
         include: [
@@ -225,7 +226,7 @@ class Controller {
       });
       // res.send(users);
       // console.log(users);
-      res.render("AdminUsersTable", { users, deletedUser });
+      res.render("AdminUsersTable", { users, deletedUser, id });
     } catch (err) {
       console.log(err.message);
       res.send(err.message);
@@ -234,11 +235,12 @@ class Controller {
 
   static async adminDeleteUser(req, res) {
     const { userId } = req.params;
+    const { id } = req.query;
     try {
       const deletedUser = await User.findByPk(userId);
       await User.destroy({ where: { id: userId } });
       res.redirect(
-        `/admin/users?deletedUser=${deletedUser.UserProfile ? deletedUser.UserProfile.firstName : "undefined"},${deletedUser.UserProfile ? deletedUser.UserProfile.firstName : "undefined"}`,
+        `/admin/users?id=${id}&deletedUser=${deletedUser.UserProfile ? deletedUser.UserProfile.firstName : "undefined"},${deletedUser.UserProfile ? deletedUser.UserProfile.firstName : "undefined"}`,
       );
     } catch (err) {
       console.log(err.message);

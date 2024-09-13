@@ -10,8 +10,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      User.hasOne(models.UserProfile);
-      User.hasMany(models.UserCourse);
+      User.hasOne(models.UserProfile, { onDelete: "CASCADE" });
+      User.hasMany(models.UserCourse, { onDelete: "CASCADE" });
     }
   }
   User.init(
